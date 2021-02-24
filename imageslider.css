@@ -1,0 +1,164 @@
+#bluck{
+    width: 100px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#brow{
+    width: 100px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#white{
+    width: 100px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#gron{
+    width: 100px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.secondboa{
+    width: 30%!important; 
+    margin: 0!important;
+    cursor: pointer;
+}
+
+.bruhente{
+    width: 300px!important;
+    position: relative;
+    bottom: 380px;
+}
+
+input:focus {
+    outline:none !important;
+}
+
+.sliderrr{
+    border: none!important;
+}
+
+
+#yetek{
+    width: 400px;
+    position: relative;
+    left: 130px;
+    border: none!important;
+}
+
+.slick-list:focus { outline: none; }
+
+.slick-slide {
+    box-shadow: none!important;
+    border-color:none!important;
+    color: none!important;
+    background: none!important;
+    outline:none!important;
+    -webkit-user-select: none; 
+    -khtml-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       user-select: none;
+     -ms-touch-action: none;
+      touch-action: none;
+       -webkit-tap-highlight-color: transparent;
+}
+
+@media screen and (max-width: 960px){
+    #yetek{
+        width: 200px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-right: 490px;
+        z-index: 200;
+    }
+
+    .secondboa{
+        display: none;
+    }
+
+    #bluck{
+        display: none;
+    }
+    
+    #brow{
+        display: none;
+    }
+    
+    #white{
+        display: none;
+    }
+    
+    #gron{
+        display: none;
+    }
+
+    .bruhente{
+        display: none;
+    }
+
+    .slick-dots li{
+        color: white!important;
+    }
+
+    .slick-dots li.slick-active button::before{
+        color: white!important;
+    }
+
+    .slick-dots li.slick-dots button::after{
+        color: white!important;
+    }
+
+    .big-slider{
+        display: none;
+   }
+
+   #mobile-black{  
+       
+   }
+
+  
+   
+
+  .secondboa{
+      width: 60vh!important;
+  }
+
+  .slick-slide {
+    text-align: center;
+  }
+}
+
+
+
+
+
+  .main {
+    font-family:Arial;
+    width: 200px;
+    display:block;
+    margin:0 auto;
+  }
+  h3 {
+      color: black;
+      font-size: 36px;
+      line-height: 100px;
+      margin: 10px;
+      padding: 2%;
+      position: relative;
+      text-align: center;
+  }
+ 
