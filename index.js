@@ -1,37 +1,40 @@
-
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import "./index.css";
-import * as serviceWorker from './serviceWorker';
-import { StateProvider } from './components/pages/Cart/StateProvider';
-import { initialState } from './components/pages/Cart/reducer.js'
-import reducer from './components/pages/Cart/reducer'
-
-ReactDOM.render(
-  <React.StrictMode>
-    <StateProvider initialState={initialState} reducer={reducer}>
-      <App />
-    </StateProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+const functions = require("firebase-functions");
+const express = require("express");
+const cors = require("cors");
+const stripe = require("stripe")(
+  "sk_test_51HPvU9DFg5koCdLGeOEiFvwHat4v8eMjX6SY0YCwxPBQBUPhKy1fPVhiSM5cQtgW7QBG9ydQcXnW57TDxVE2f3H000HSfmEQZF"
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
-   
+// API
 
+// - App config
+const app = express();
 
+// - Middlewares
+app.use(cors({ origin: true }));
+app.use(express.json());
 
+// - API routes
+app.get("/", (request, response) => response.status(200).send("hello world"));
 
+app.post("/payments/create", async (request, response) => {
+  const total = request.query.total;
 
+  console.log("Payment Request Recieved BOOM!!! for this amount >>> ", total);
 
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: total, // subunits of the currency
+    currency: "usd",
+  });
 
-// import App from './App';
+  // OK - Created
+  response.status(201).send({
+    clientSecret: paymentIntent.client_secret,
+  });
+});
 
-// ReactDOM.render(<App />, document.getElementById('root'));
+// - Listen command
+exports.api = functions.https.onRequest(app);
+
+// Example endpoint
+// http://localhost:5001/challenge-4b2b2/us-central1/api
